@@ -1,0 +1,18 @@
+.TodoSubmit {
+  display: inline;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  outline: none;
+}
+
+.fa-plus-circle {
+  transition: all 0.3s;
+  color: pink;
+
+  cursor: pointer;
+}
+
+.fa-plus-circle:hover {
+  color: green;
+}

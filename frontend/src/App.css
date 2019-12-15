@@ -1,0 +1,21 @@
+.App {
+  text-align: center;
+  width: 100vw;
+  height: 100vh;
+  background-image: linear-gradient(
+    to bottom,
+    #c94584,
+    #cd556f,
+    #ca6862,
+    #c1795f,
+    #b78965
+  );
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.App h1 {
+  padding: 0px;
+}

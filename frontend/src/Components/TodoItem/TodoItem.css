@@ -1,0 +1,21 @@
+.TodoItem {
+  background-color: bisque;
+  height: 40px;
+  text-align: center;
+  outline: none;
+  background: transparent;
+  margin-bottom: 10px;
+  font-size: 16px;
+  color: #fff;
+  min-width: 25px;
+  display: flex;
+}
+
+.TodoItem p {
+  border-bottom: 1px solid #ddd;
+}
+
+.TodoItem li {
+  padding: 0px;
+  margin: 0px;
+}

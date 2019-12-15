@@ -1,0 +1,46 @@
+.Main {
+  width: 600px;
+  height: 400px;
+  display: flex;
+  margin: 25px;
+  background-color: rgba(38, 8, 1, 0.4);
+  border: 3px solid rgb(109, 79, 44);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+}
+
+.Main h1 {
+  padding: 0px;
+  margin: 0;
+  text-shadow: 0 2px 3px rgba(0, 0, 0, 0.8);
+}
+
+.Main form > * {
+  margin: 10px;
+}
+
+.Main input {
+  background-color: bisque;
+  transition: all 0.3s;
+  width: 220px;
+  height: 20px;
+  padding: 10px;
+  outline: none;
+
+  padding: 7px;
+  border: 0;
+  border-bottom: 1px solid #ddd;
+  background: transparent;
+  margin-bottom: 10px;
+  font-size: 16px;
+  height: 25px;
+  color: #fff;
+}
+
+.Main input:focus {
+  border-bottom: 1px solid rgb(247, 137, 4);
+}
