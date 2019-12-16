@@ -1,0 +1,52 @@
+.Modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 200;
+  width: 600px;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  margin: 25px;
+  background-color: rgb(180, 137, 57);
+  border: 3px solid rgb(109, 79, 44);
+  text-align: center;
+}
+
+.Modal main {
+  margin-top: 100px;
+}
+
+.Modal h2 {
+  padding: 0px;
+  margin: 0px;
+}
+
+.Modal form > * {
+  margin: 10px;
+}
+
+.Modal input {
+  background-color: bisque;
+  transition: all 0.3s;
+  width: 220px;
+  height: 20px;
+  padding: 10px;
+  outline: none;
+
+  padding: 7px;
+  border: 0;
+  border-bottom: 1px solid #ddd;
+  background: transparent;
+  margin-bottom: 10px;
+  font-size: 16px;
+  height: 25px;
+  color: #fff;
+}
+
+.Modal input:focus {
+  border-bottom: 1px solid rgb(247, 137, 4);
+}

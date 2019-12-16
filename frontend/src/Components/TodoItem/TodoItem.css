@@ -1,21 +1,35 @@
 .TodoItem {
-  background-color: bisque;
-  height: 40px;
   text-align: center;
   outline: none;
-  background: transparent;
-  margin-bottom: 10px;
   font-size: 16px;
   color: #fff;
-  min-width: 25px;
+  padding: 10px;
+  position: relative;
   display: flex;
-}
-
-.TodoItem p {
-  border-bottom: 1px solid #ddd;
+  align-items: center;
 }
 
 .TodoItem li {
   padding: 0px;
   margin: 0px;
+}
+
+.TodoItem i {
+  position: absolute;
+  right: 25px;
+  transition: all 0.3s;
+  cursor: pointer;
+}
+
+.TodoItem .edit {
+  position: absolute;
+  right: 75px;
+}
+
+.TodoItem .edit:hover {
+  color: rgb(212, 212, 74);
+}
+
+.TodoItem i:hover {
+  color: red;
 }

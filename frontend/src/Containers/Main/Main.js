@@ -3,10 +3,6 @@ import "./Main.css";
 import TodoSubmit from "../../Components/TodoSubmit/TodoSubmit";
 import axios from "axios";
 class Main extends Component {
-  state = {
-    todo: ""
-  };
-
   AddTodo = event => {
     event.preventDefault();
     console.log("AddTodo invoked");
@@ -32,11 +28,17 @@ class Main extends Component {
         <p>React Express Postgres Fullstack application</p>
 
         <form onSubmit={this.AddTodo}>
-          <input type="text" ref="ref_title" placeholder="Enter Title" />
+          <input
+            type="text"
+            ref="ref_title"
+            placeholder="Enter Title*"
+            required
+          />
           <input
             type="text"
             ref="ref_description"
-            placeholder="Enter Description"
+            placeholder="Enter Description*"
+            required
           />
 
           <br />
