@@ -10,7 +10,7 @@ class App extends Component {
 
   getTodolist = () => {
     axios
-      .get("http://localhost:5000/api/todos")
+      .get("/api/todos")
       .then(res => {
         console.log("getTodolist - RES.DATA!: ", res.data);
         this.setState({ todolist: res.data });
@@ -22,7 +22,6 @@ class App extends Component {
     return (
       <div className="App">
         <Main getTodolist={this.getTodolist} />
-
         <TodoList
           todolist={this.state.todolist}
           getTodolist={this.getTodolist}

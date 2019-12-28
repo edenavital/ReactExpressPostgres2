@@ -3,34 +3,43 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 const pg = require("pg");
 const morgan = require("morgan");
-
+const path = require("path");
+const PORT = process.env.PORT || 5000;
 const app = express();
 
-const pool = new pg.Pool({
+//Config for working with postgres in localhost environment:
+config = {
   user: "postgres",
   database: "postgres",
   password: "1a2d3i4",
   host: "localhost",
   port: 5432,
   max: 10
-});
+};
 
-const PORT = 5000;
+/*Config For working with postgres in deployment environment - heroku:
+config = {
+  connectionString: process.env.DATABASE_URL,
+  ssl: true
+}*/
 
+//Enable access from all requests, parse the data to json format, and using morgan for logs
 app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-
 app.use(morgan("dev"));
 
+const pool = new pg.Pool(config);
+
 app.get("/api/todos", (req, res) => {
-  //Call back function - Connect to the pool of clients of the database if it's not full
-  //If the pool is not full, a new client will be created. db - A new client inside the database, done is a release function
+  //Call back function - Connect to the pool of clients of the database
+  //If the pool is not full, a new client will be created - db - A new client inside the database, done is a release function
+
   pool.connect((err, db, done) => {
     if (err) {
       return res.status(400).send(err);
     }
-
+    //table = received data
     db.query("SELECT * from todolist", (err, table) => {
       done();
       if (err) {
@@ -48,6 +57,7 @@ app.post("/api/postTodo", (req, res) => {
 
   const title = req.body.title;
   const description = req.body.description;
+
   const values = [title, description];
 
   pool.connect((err, db, done) => {
@@ -113,6 +123,18 @@ app.put("/api/update/:id", (req, res) => {
       }
     );
   });
+});
+
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static(path.join(__dirname, "/frontend/build")));
+
+  app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname + "/frontend/build/index.html"));
+  });
+}
+
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname + "/frontend/public/index.html"));
 });
 
 app.listen(PORT, () => console.log("Listening on port " + PORT));

@@ -11,13 +11,14 @@ class TodoList extends Component {
     isModalVisible: false
   };
 
+  //When mounts, get the todos
   componentDidMount() {
     this.props.getTodolist();
   }
 
   deleteTodo = id => {
     axios
-      .delete("http://localhost:5000/api/delete/" + id)
+      .delete("/api/delete/" + id)
       .then(res => {
         console.log(`The id of TODO has been deleted!`);
         this.props.getTodolist();
@@ -40,9 +41,7 @@ class TodoList extends Component {
         <TodoItem
           todo={todo}
           deleteTodo={() => this.deleteTodo(todo.id)}
-          getTodolist={this.props.getTodolist}
           openModal={() => this.openModal(todo)}
-          closeModal={this.closeModal}
         />
       </li>
     ));

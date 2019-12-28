@@ -3,8 +3,8 @@ import "./Modal.css";
 import TodoSubmit from "../TodoSubmit/TodoSubmit";
 import Backdrop from "../Backdrop/Backdrop";
 import axios from "axios";
-//Manager - TodoList container - by state
-//Props: closeModal, todoItem
+
+//Props: todo closeModal() getTodoList()
 class Modal extends Component {
   editTodo = (event, todo) => {
     event.preventDefault();
@@ -17,7 +17,7 @@ class Modal extends Component {
 
     console.log("EDIT TODO invoked with todo:", editedTodo);
     axios
-      .put("http://localhost:5000/api/update/" + editedTodo.id, editedTodo)
+      .put("/api/update/" + editedTodo.id, editedTodo)
       .then(res => {
         console.log(`ID OF TODO: ${todo.id} HAS BEEN EDITED!`);
         this.props.getTodolist();

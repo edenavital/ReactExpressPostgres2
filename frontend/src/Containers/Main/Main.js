@@ -3,7 +3,7 @@ import "./Main.css";
 import TodoSubmit from "../../Components/TodoSubmit/TodoSubmit";
 import axios from "axios";
 class Main extends Component {
-  AddTodo = event => {
+  addTodo = event => {
     event.preventDefault();
     console.log("AddTodo invoked");
 
@@ -13,7 +13,7 @@ class Main extends Component {
     };
 
     axios
-      .post("http://localhost:5000/api/postTodo", newTodo)
+      .post("/api/postTodo", newTodo)
       .then(res => {
         console.log("Inserted data successfully");
         this.props.getTodolist();
@@ -27,7 +27,7 @@ class Main extends Component {
         <h1>Welcome to my TODO LIST</h1>
         <p>React Express Postgres Fullstack application</p>
 
-        <form onSubmit={this.AddTodo}>
+        <form onSubmit={this.addTodo}>
           <input
             type="text"
             ref="ref_title"
