@@ -6,7 +6,7 @@ import "./TodoItem.css";
 const TodoItem = ({ todo, deleteTodo, openModal }) => {
   return (
     <div className="TodoItem">
-      Title: {todo.title}, Description: {todo.description}
+      {todo.title} - {todo.description}
       <i className="fas fa-2x fa-trash-alt" onClick={deleteTodo}></i>
       <i className="fas fa-2x fa-edit edit" onClick={openModal}></i>
     </div>

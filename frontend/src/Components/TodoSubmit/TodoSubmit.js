@@ -1,6 +1,6 @@
 import React from "react";
 import "./TodoSubmit.css";
-const TodoSubmit = props => (
+const TodoSubmit = () => (
   <button className="TodoSubmit" type="submit">
     <i className="fas fa-3x fa-plus-circle"></i>
   </button>

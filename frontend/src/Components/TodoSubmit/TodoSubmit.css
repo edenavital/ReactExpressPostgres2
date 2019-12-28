@@ -8,8 +8,7 @@
 
 .fa-plus-circle {
   transition: all 0.3s;
-  color: pink;
-
+  color: #fff;
   cursor: pointer;
 }
 

@@ -12,4 +12,5 @@
 .TodoList ul {
   list-style: none;
   width: 100vw;
+  padding: 15px;
 }
